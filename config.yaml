@@ -1,0 +1,30 @@
+# Default configuration for the valuation.
+#
+# Every number below is an ASSUMPTION you supply, not a fact pulled from a
+# filing. The example values are illustrative round numbers for a large growth
+# company, chosen to demonstrate the model, not to value any real company.
+
+company: "Example Growth Co"
+current_price: 250.0          # the market price to compare the valuation against
+shares_outstanding: 3200.0    # in millions
+net_debt: -15000.0            # in millions; negative means net cash
+
+dcf:
+  base_fcf: 9000.0            # last full-year free cash flow, in millions
+  # Free cash flow growth assumed for each projected year (here, 5 years).
+  growth_rates: [0.18, 0.15, 0.12, 0.10, 0.08]
+  wacc: 0.10                  # weighted average cost of capital
+  terminal_growth: 0.03       # perpetual growth after the projection window
+
+comparables:
+  # The target company's own metrics, in millions.
+  ebitda: 16000.0
+  net_income: 11000.0
+  revenue: 100000.0
+  # Peer-group multiples to apply (use medians of a real peer set in practice).
+  peer_ev_ebitda: 18.0
+  peer_pe: 28.0
+  peer_ps: 4.5
+
+# How far the valuation must sit from the price before calling it cheap or rich.
+recommendation_margin: 0.15
