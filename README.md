@@ -110,6 +110,18 @@ shares, peer multiples, and current price.
 - **This is not investment advice.** The recommendation is a mechanical
   comparison of an assumption-driven estimate against a price, nothing more.
 
+## Reverse DCF
+
+A normal DCF turns assumptions into a value. `reverse_dcf.py` runs it backwards:
+it solves for the terminal growth rate today's price implies, reframing the
+question from "what is it worth" to "what would have to be true for this price to
+be fair."
+
+```python
+from valuation.reverse_dcf import implied_terminal_growth
+implied_terminal_growth(price, base_fcf, growth_rates, wacc, net_debt, shares)
+```
+
 ## Tests
 
 ```bash
