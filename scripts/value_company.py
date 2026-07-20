@@ -75,7 +75,7 @@ def main() -> None:
             terminal_growth_range=np.round(np.linspace(tg_c - 0.01, tg_c + 0.01, 5), 4),
         )
         f1 = plotting.plot_fcf(dcf)
-        f2 = plotting.plot_sensitivity(grid)
+        f2 = plotting.plot_sensitivity(grid, current_price=val.current_price)
         f3 = plotting.plot_football_field(val)
         for fig, name in [(f1, "fcf"), (f2, "sensitivity"), (f3, "football_field")]:
             out = plotting.save_figure(fig, f"results/{name}.png")
